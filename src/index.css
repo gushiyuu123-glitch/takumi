@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   Global Base
+================================ */
+body {
+  @apply bg-concrete text-charcoal font-serif antialiased;
+}
+
+/* 過剰な装飾・強調を物理的に禁止 */
+strong, b {
+  font-weight: normal;
+}
+.hero-title,
+.hero-sub {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 1.4s cubic-bezier(.2,.8,.2,1),
+    transform 1.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.hero-sub {
+  transition-delay: 0.35s;
+}
+
+.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes drawLine {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-draw-line {
+  height: 92%;
+  animation: drawLine 1.4s cubic-bezier(.25,.8,.25,1) forwards;
+}
